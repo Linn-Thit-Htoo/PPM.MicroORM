@@ -14,7 +14,10 @@ public static class PPMMicroORM
         try
         {
             connection.Open();
-            SqlCommand command = new(query, connection);
+            SqlCommand command = new(query, connection)
+            {
+                CommandType = commandType
+            };
 
             if (parameters is not null)
             {
@@ -40,7 +43,10 @@ public static class PPMMicroORM
         try
         {
             await connection.OpenAsync(cs);
-            SqlCommand command = new(query, connection);
+            SqlCommand command = new(query, connection)
+            {
+                CommandType = commandType
+            };
 
             if (parameters is not null)
             {
@@ -67,7 +73,10 @@ public static class PPMMicroORM
         try
         {
             connection.Open();
-            SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand command = new(query, connection)
+            {
+                CommandType = commandType
+            };
             if (parameters is not null)
             {
                 command.Parameters.AddRange(parameters.ToArray());
@@ -93,7 +102,11 @@ public static class PPMMicroORM
         try
         {
             await connection.OpenAsync(cs);
-            SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand command = new(query, connection)
+            {
+                CommandType = commandType
+            };
+
             if (parameters is not null)
             {
                 command.Parameters.AddRange(parameters.ToArray());
