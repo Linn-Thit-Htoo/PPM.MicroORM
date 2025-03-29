@@ -453,7 +453,7 @@ public static class PPMMicroORM
         }
     }
 
-    // <summary>
+    /// <summary>
     /// Async
     /// Returns null if there is no element in the sequence.
     /// Throws error when there is more than one element in the sequence.
