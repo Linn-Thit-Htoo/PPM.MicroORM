@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
+using PPM.MiniORM.ConsoleApp;
 using System.Data;
 using System.Linq;
 
@@ -40,6 +41,7 @@ Tbl_Blog WHERE BlogId = @BlogId AND IsDeleted = @IsDeleted";
         try
         {
             connection.Open();
+
             SqlCommand command = new(query, connection)
             {
                 CommandType = commandType
@@ -55,9 +57,9 @@ Tbl_Blog WHERE BlogId = @BlogId AND IsDeleted = @IsDeleted";
 
             adapter.Fill(dt);
             connection.Close();
-            string jsonStr = JsonConvert.SerializeObject(dt);
+            string jsonStr = dt.ToJson();
 
-            return JsonConvert.DeserializeObject<List<T>>(jsonStr);
+            return jsonStr.ToObject<List<T>>();
         }
         catch (Exception ex)
         {
