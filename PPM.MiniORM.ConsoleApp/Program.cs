@@ -72,6 +72,7 @@ Tbl_Blog WHERE BlogId = @BlogId AND IsDeleted = @IsDeleted";
         try
         {
             await connection.OpenAsync(cs);
+
             SqlCommand command = new(query, connection)
             {
                 CommandType = commandType
@@ -87,9 +88,9 @@ Tbl_Blog WHERE BlogId = @BlogId AND IsDeleted = @IsDeleted";
 
             adapter.Fill(dt);
             await connection.CloseAsync();
-            string jsonStr = JsonConvert.SerializeObject(dt);
+            string jsonStr = dt.ToJson();
 
-            return JsonConvert.DeserializeObject<List<T>>(jsonStr);
+            return jsonStr.ToObject<List<T>>();
         }
         catch (Exception ex)
         {
@@ -117,8 +118,8 @@ Tbl_Blog WHERE BlogId = @BlogId AND IsDeleted = @IsDeleted";
             adapter.Fill(dt);
 
             connection.Close();
-            string jsonStr = JsonConvert.SerializeObject(dt, Formatting.Indented);
-            var lst = JsonConvert.DeserializeObject<List<T>>(jsonStr);
+            string jsonStr = dt.ToJson();
+            var lst = jsonStr.ToObject<List<T>>();
 
             return lst is not null && lst.Count > 0 ? lst.FirstOrDefault() : default;
         }
@@ -149,8 +150,8 @@ Tbl_Blog WHERE BlogId = @BlogId AND IsDeleted = @IsDeleted";
             adapter.Fill(dt);
 
             await connection.CloseAsync();
-            string jsonStr = JsonConvert.SerializeObject(dt, Formatting.Indented);
-            var lst = JsonConvert.DeserializeObject<List<T>>(jsonStr);
+            string jsonStr = dt.ToJson();
+            var lst = jsonStr.ToObject<List<T>>();
 
             return lst is not null && lst.Count > 0 ? lst.FirstOrDefault() : default;
         }
@@ -181,8 +182,8 @@ Tbl_Blog WHERE BlogId = @BlogId AND IsDeleted = @IsDeleted";
             adapter.Fill(dt);
 
             connection.Close();
-            string jsonStr = JsonConvert.SerializeObject(dt, Formatting.Indented);
-            var lst = JsonConvert.DeserializeObject<List<T>>(jsonStr);
+            string jsonStr = dt.ToJson();
+            var lst = jsonStr.ToObject<List<T>>();
 
             if (lst is not null && lst.Count > 0 && lst.FirstOrDefault() is not null)
             {
@@ -218,8 +219,8 @@ Tbl_Blog WHERE BlogId = @BlogId AND IsDeleted = @IsDeleted";
             adapter.Fill(dt);
 
             connection.Close();
-            string jsonStr = JsonConvert.SerializeObject(dt, Formatting.Indented);
-            var lst = JsonConvert.DeserializeObject<List<T>>(jsonStr);
+            string jsonStr = dt.ToJson();
+            var lst = jsonStr.ToObject<List<T>>();
 
             if (lst is not null && lst.Count > 0 && lst.FirstOrDefault() is not null)
             {
