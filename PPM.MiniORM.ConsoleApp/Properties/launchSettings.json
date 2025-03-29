@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PPM.MiniORM.ConsoleApp": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
