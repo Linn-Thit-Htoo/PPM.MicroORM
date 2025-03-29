@@ -235,6 +235,74 @@ Tbl_Blog WHERE BlogId = @BlogId AND IsDeleted = @IsDeleted";
         }
     }
 
+    // throws error if there is no element or more than one element
+    public static T? Single<T>(this SqlConnection connection, string query, List<SqlParameter>? parameters = null, CommandType commandType = CommandType.Text)
+    {
+        try
+        {
+            connection.Open();
+
+            SqlCommand command = new SqlCommand(query, connection) { CommandType = commandType };
+            if (parameters is not null)
+            {
+                command.Parameters.AddRange(parameters.ToArray());
+            }
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new();
+            adapter.Fill(dt);
+
+            connection.Close();
+            string jsonStr = dt.ToJson();
+            var lst = jsonStr.ToObject<List<T>>();
+
+            if (lst is not null && lst.Count == 1)
+            {
+                return lst.FirstOrDefault();
+            }
+
+            throw new InvalidOperationException("No element found or more than one element.");
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+
+    // throws error if there is no element or more than one element
+    public async static Task<T?> SingleAsync<T>(this SqlConnection connection, string query, List<SqlParameter>? parameters = null, CommandType commandType = CommandType.Text, CancellationToken cs = default)
+    {
+        try
+        {
+            await connection.OpenAsync(cs);
+
+            SqlCommand command = new SqlCommand(query, connection) { CommandType = commandType };
+            if (parameters is not null)
+            {
+                command.Parameters.AddRange(parameters.ToArray());
+            }
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new();
+            adapter.Fill(dt);
+
+            await connection.CloseAsync();
+            string jsonStr = dt.ToJson();
+            var lst = jsonStr.ToObject<List<T>>();
+
+            if (lst is not null && lst.Count == 1)
+            {
+                return lst.FirstOrDefault();
+            }
+
+            throw new InvalidOperationException("No element found or more than one element.");
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+
     public static int Execute(this SqlConnection connection, string query, List<SqlParameter> parameters)
     {
         try
