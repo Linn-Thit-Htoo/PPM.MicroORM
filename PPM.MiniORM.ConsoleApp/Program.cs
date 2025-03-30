@@ -1,7 +1,4 @@
-﻿using System.Data;
-using Microsoft.Data.SqlClient;
-
-namespace PPM.MiniORM.ConsoleApp;
+﻿namespace PPM.MiniORM.ConsoleApp;
 
 public static class PPMMicroORM
 {
