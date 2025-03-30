@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace PPM.MiniORM.ConsoleApp;
+﻿namespace PPM.MiniORM.ConsoleApp;
 
 public static class Extension
 {
