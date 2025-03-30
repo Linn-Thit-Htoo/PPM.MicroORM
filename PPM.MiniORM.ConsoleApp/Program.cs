@@ -335,7 +335,9 @@ public static class PPMMicroORM
                 return lst.FirstOrDefault();
             }
 
-            throw new InvalidOperationException("No element found or more than one element in the sequence.");
+            throw new InvalidOperationException(
+                "No element found or more than one element in the sequence."
+            );
         }
         catch (Exception ex)
         {
@@ -390,7 +392,9 @@ public static class PPMMicroORM
                 return lst.FirstOrDefault();
             }
 
-            throw new InvalidOperationException("No element found or more than one element in the sequence.");
+            throw new InvalidOperationException(
+                "No element found or more than one element in the sequence."
+            );
         }
         catch (Exception ex)
         {
@@ -442,7 +446,9 @@ public static class PPMMicroORM
 
             if (lst is not null && lst.Count > 1)
             {
-                throw new InvalidOperationException("There is mroe than one element in the sequence.");
+                throw new InvalidOperationException(
+                    "There is mroe than one element in the sequence."
+                );
             }
 
             return lst is not null && lst.Count == 1 ? lst.FirstOrDefault() : default;
@@ -497,7 +503,9 @@ public static class PPMMicroORM
 
             if (lst is not null && lst.Count > 1)
             {
-                throw new InvalidOperationException("There is mroe than one element in the sequence.");
+                throw new InvalidOperationException(
+                    "There is mroe than one element in the sequence."
+                );
             }
 
             return lst is not null && lst.Count == 1 ? lst.FirstOrDefault() : default;
