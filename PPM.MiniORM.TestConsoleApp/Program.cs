@@ -1,13 +1,16 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Reflection.Metadata;
+using Microsoft.Data.SqlClient;
 using PPM.MiniORM.ConsoleApp;
 using PPM.MiniORM.TestConsoleApp;
-using System.Reflection.Metadata;
 
 public class Program
 {
-    public async static Task Main(string[] args)
+    public static async Task Main(string[] args)
     {
-        CustomService customService = new("Server=.;Database=BhonePyae;User ID=sa;Password=sasa@123;TrustServerCertificate=True;");
+        CustomService customService =
+            new(
+                "Server=.;Database=BhonePyae;User ID=sa;Password=sasa@123;TrustServerCertificate=True;"
+            );
         await customService.Run();
     }
 }
@@ -33,14 +36,11 @@ public class CustomService
         try
         {
             string query = BlogQuery.BlogListQuery;
-            var parameters = new List<SqlParameter>()
-            {
-                new("@IsDeleted", false)
-            };
+            var parameters = new List<SqlParameter>() { new("@IsDeleted", false) };
 
             using var db = new SqlConnection(_connectionString);
             var lst = await db.QueryAsync<BlogModel>(query, parameters);
-            
+
             if (lst is not null)
             {
                 foreach (var item in lst)
@@ -88,7 +88,8 @@ public class CustomService
     {
         try
         {
-            string query = @"INSERT INTO Tbl_Blog (BlogTitle, BlogAuthor, BlogContent)
+            string query =
+                @"INSERT INTO Tbl_Blog (BlogTitle, BlogAuthor, BlogContent)
 VALUES (@BlogTitle, @BlogAuthor, @BlogContent)";
             var parameters = new List<SqlParameter>()
             {
