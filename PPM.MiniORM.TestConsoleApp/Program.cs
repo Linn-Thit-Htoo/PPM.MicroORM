@@ -1,5 +1,4 @@
-﻿using System.Reflection.Metadata;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using PPM.MiniORM.ConsoleApp;
 using PPM.MiniORM.TestConsoleApp;
 
