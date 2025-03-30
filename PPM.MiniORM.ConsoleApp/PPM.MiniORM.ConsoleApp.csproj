@@ -9,6 +9,7 @@
 		<Product>PPM.MicroORM</Product>
 		<IsPackable>true</IsPackable>
 		<Description>Custom Implementation of Micro-ORM like Dapper</Description>
+		<RepositoryUrl>https://github.com/Linn-Thit-Htoo/PPM.MicroORM.git</RepositoryUrl>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
