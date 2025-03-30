@@ -371,6 +371,7 @@ public static class PPMMicroORM
             {
                 CommandType = commandType
             };
+
             if (parameters is not null)
             {
                 command.Parameters.AddRange(parameters.ToArray());
