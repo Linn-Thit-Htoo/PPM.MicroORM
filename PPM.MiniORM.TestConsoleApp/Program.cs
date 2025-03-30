@@ -87,9 +87,8 @@ public class CustomService
     {
         try
         {
-            string query =
-                @"INSERT INTO Tbl_Blog (BlogTitle, BlogAuthor, BlogContent)
-VALUES (@BlogTitle, @BlogAuthor, @BlogContent)";
+            string query = BlogQuery.AddBlogQuery;
+
             var parameters = new List<SqlParameter>()
             {
                 new SqlParameter("@BlogTitle", blogTitle),
