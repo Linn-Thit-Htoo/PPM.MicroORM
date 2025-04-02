@@ -1,4 +1,4 @@
-﻿namespace PPM.MiniORM.ConsoleApp;
+﻿namespace PPM.MicroORM.ConsoleApp;
 
 public static class Extension
 {

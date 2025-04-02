@@ -1,4 +1,4 @@
-﻿namespace PPM.MiniORM.TestConsoleApp;
+﻿namespace PPM.MicroORM.TestConsoleApp;
 
 public class BlogQuery
 {
