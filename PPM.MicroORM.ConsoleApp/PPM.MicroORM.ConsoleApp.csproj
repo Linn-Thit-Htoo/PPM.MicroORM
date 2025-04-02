@@ -1,22 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<OutputType>Exe</OutputType>
-		<TargetFramework>net8.0</TargetFramework>
-		<PackageId>PPM.MicroORM</PackageId>
-		<Version>1.0.3</Version>
-		<Author>Lin Thit Htoo</Author>
-		<Product>PPM.MicroORM</Product>
-		<IsPackable>true</IsPackable>
-		<Description>Custom Implementation of Micro-ORM like Dapper</Description>
-		<RepositoryUrl>https://github.com/Linn-Thit-Htoo/PPM.MicroORM.git</RepositoryUrl>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-	</PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <PackageId>PPM.MicroORM</PackageId>
+    <Version>1.0.3</Version>
+    <Author>Lin Thit Htoo</Author>
+    <Product>PPM.MicroORM</Product>
+    <IsPackable>true</IsPackable>
+    <Description>Custom Implementation of Micro-ORM like Dapper</Description>
+    <RepositoryUrl>https://github.com/Linn-Thit-Htoo/PPM.MicroORM.git</RepositoryUrl>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+  </ItemGroup>
 
 </Project>
