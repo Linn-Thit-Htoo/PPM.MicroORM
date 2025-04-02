@@ -24,7 +24,6 @@ public static class PPMMicroORM
         try
         {
             connection.Open();
-
             using SqlCommand command = new(query, connection) { CommandType = commandType };
 
             if (parameters is not null)
@@ -69,7 +68,6 @@ public static class PPMMicroORM
         try
         {
             await connection.OpenAsync(cs);
-
             using SqlCommand command = new(query, connection) { CommandType = commandType };
 
             if (parameters is not null)
