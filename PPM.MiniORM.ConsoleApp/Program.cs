@@ -113,6 +113,7 @@ public static class PPMMicroORM
         {
             connection.Open();
             using SqlCommand command = new(query, connection) { CommandType = commandType };
+
             if (parameters is not null)
             {
                 command.Parameters.AddRange(parameters.ToArray());
