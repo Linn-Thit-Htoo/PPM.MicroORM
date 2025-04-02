@@ -527,8 +527,8 @@ public static class PPMMicroORM
         try
         {
             connection.Open();
-
             SqlCommand command = new(query, connection);
+
             command.Parameters.AddRange(parameters.ToArray());
             int result = command.ExecuteNonQuery();
             connection.Close();
