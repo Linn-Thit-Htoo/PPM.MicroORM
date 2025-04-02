@@ -309,7 +309,7 @@ public static class PPMMicroORM
             connection.Open();
             using SqlCommand command = new SqlCommand(query, connection)
             {
-                CommandType = commandType
+                CommandType = commandType,
             };
 
             if (parameters is not null)
@@ -366,7 +366,7 @@ public static class PPMMicroORM
             await connection.OpenAsync(cs);
             using SqlCommand command = new SqlCommand(query, connection)
             {
-                CommandType = commandType
+                CommandType = commandType,
             };
 
             if (parameters is not null)
@@ -422,7 +422,7 @@ public static class PPMMicroORM
             connection.Open();
             using SqlCommand command = new SqlCommand(query, connection)
             {
-                CommandType = commandType
+                CommandType = commandType,
             };
 
             if (parameters is not null)
@@ -479,7 +479,7 @@ public static class PPMMicroORM
             await connection.OpenAsync(cs);
             using SqlCommand command = new SqlCommand(query, connection)
             {
-                CommandType = commandType
+                CommandType = commandType,
             };
 
             if (parameters is not null)
