@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PPM.MiniORM.ConsoleApp\PPM.MiniORM.ConsoleApp.csproj" />
+    <ProjectReference Include="..\PPM.MicroORM.ConsoleApp\PPM.MicroORM.ConsoleApp.csproj" />
   </ItemGroup>
 
 </Project>
