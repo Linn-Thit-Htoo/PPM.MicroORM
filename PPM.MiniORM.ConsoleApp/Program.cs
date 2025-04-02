@@ -307,7 +307,6 @@ public static class PPMMicroORM
         try
         {
             connection.Open();
-
             using SqlCommand command = new SqlCommand(query, connection)
             {
                 CommandType = commandType
