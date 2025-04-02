@@ -477,7 +477,6 @@ public static class PPMMicroORM
         try
         {
             await connection.OpenAsync(cs);
-
             using SqlCommand command = new SqlCommand(query, connection)
             {
                 CommandType = commandType
