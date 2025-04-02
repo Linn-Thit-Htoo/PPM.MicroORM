@@ -7,10 +7,9 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
-        CustomService customService =
-            new(
-                "Server=.;Database=BhonePyae;User ID=sa;Password=sasa@123;TrustServerCertificate=True;"
-            );
+        CustomService customService = new(
+            "Server=.;Database=BhonePyae;User ID=sa;Password=sasa@123;TrustServerCertificate=True;"
+        );
         await customService.Run();
     }
 }
@@ -63,10 +62,10 @@ public class CustomService
         {
             string query = BlogQuery.GetBlogByIdQuery;
             var parameters = new List<SqlParameter>()
-        {
-            new SqlParameter("@BlogId", id),
-            new SqlParameter("@IsDeleted", false)
-        };
+            {
+                new SqlParameter("@BlogId", id),
+                new SqlParameter("@IsDeleted", false),
+            };
 
             using var db = new SqlConnection(_connectionString);
             var item = await db.QueryFirstOrDefaultAsync<BlogModel>(query, parameters);
@@ -91,11 +90,11 @@ public class CustomService
             string query = BlogQuery.AddBlogQuery;
 
             var parameters = new List<SqlParameter>()
-        {
-            new SqlParameter("@BlogTitle", blogTitle),
-            new SqlParameter("@BlogAuthor", blogAuthor),
-            new SqlParameter("@BlogContent", blogContent)
-        };
+            {
+                new SqlParameter("@BlogTitle", blogTitle),
+                new SqlParameter("@BlogAuthor", blogAuthor),
+                new SqlParameter("@BlogContent", blogContent),
+            };
 
             using var db = new SqlConnection(_connectionString);
             int result = await db.ExecuteAsync(query, parameters);
